@@ -1,3 +1,6 @@
+
+import java.util.Arrays;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -29,6 +32,55 @@ We can see that 28 is the first triangle number to have over five divisors.
 What is the value of the first triangle number to have over one hundred divisors?
     
     */
+    public static void main(String[] args) {
+        int n = 1;
+        int triNumber = 0;
+        int triNumDivisors = 0;
+        while (triNumDivisors <= 100){
+            triNumber=getTriNumber(n);
+            triNumDivisors = getTriNumDivisors(triNumber);
+            n++;
+        }
+        System.out.println("The first triangle number to have over 100 divisors is: " + triNumber ". " + triNumber + " has " + triNumDivisors + " which are: " + listofDivisors(triNumber));
+    }
+     
+   public static int getTriNumber(int n){
+      return n * (n + 1)/2;
+   
+       }
+   public static int getTriNumDivisors(int n){
+        int count = 0;
+        for(int i = 1; i <= Math.sqrt(n); i++){
+            if (n%i == 0){
+                count++;
+                if(n/i!=i){
+                    count++;
+                }
+            }
+        }
+        return count;
+   }
+public static int[] listofDivisors(int n){
+    int[] divisors = new int[n]; // Assuming the maximum possible number of divisors is 'num'
+    int count = 0; // To keep track of the number of divisors
+    for (int i = 1; i <= Math.sqrt(n); i++) {
+    if (n%i==0) {
+            divisors[count++] = i;
+            if (n / i != i) {
+                divisors[count++] = n / i;
+            }
+        }
+    }
+    
+    int[] result = new int[count]; // this will store only the actual divisors
+    System.arraycopy(divisors, 0, result, 0, count); // copying to new array
+    
+    return result;
+
+            }
+        }
     
     
-}
+
+
+
