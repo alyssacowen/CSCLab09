@@ -15,6 +15,11 @@ public class FibClass {
         }
         return fibRec(n - 1) + fibRec(n - 2);
     }
+      /*
+     
+    time complex: O(2^n)
+    space complex: O(n)
+    */
 
     static int fibIter(int n) {
        
@@ -26,5 +31,9 @@ public class FibClass {
         
         return f[n];
     }
-
+   /*
+time complexity: O(n)
+    space complexity: O(1)
+*/
 }
+//The iterative method is better because in terms of time O(n) is quicker than O(2^n) and in terms of space iterative O(1) takes up a constant amount of space despite the input
