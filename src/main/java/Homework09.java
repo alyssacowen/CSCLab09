@@ -41,7 +41,7 @@ What is the value of the first triangle number to have over one hundred divisors
             triNumDivisors = getTriNumDivisors(triNumber);
             n++;
         }
-        System.out.println("The first triangle number to have over 100 divisors is: " + triNumber ". " + triNumber + " has " + triNumDivisors + " which are: " + listofDivisors(triNumber));
+        System.out.println("The first triangle number to have over 100 divisors is: " + triNumber + ". " + triNumber + " has " + triNumDivisors + " which are: " + Arrays.toString(listofDivisors(triNumber)));
     }
      
    public static int getTriNumber(int n){
